@@ -8,26 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
-var ProductDetailGuard = (function () {
-    function ProductDetailGuard(_router) {
-        this._router = _router;
+var star_component_1 = require("./star.component");
+var forms_1 = require("@angular/forms");
+var common_1 = require("@angular/common");
+var SharedModule = (function () {
+    function SharedModule() {
     }
-    ProductDetailGuard.prototype.canActivate = function (route) {
-        var id = +route.url[1].path;
-        if (isNaN(id) || id < 1) {
-            alert('Invalid product id!');
-            this._router.navigate(['/products']);
-            return false;
-        }
-        return true;
-    };
-    ProductDetailGuard = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], ProductDetailGuard);
-    return ProductDetailGuard;
+    SharedModule = __decorate([
+        core_1.NgModule({
+            declarations: [star_component_1.StarComponent],
+            imports: [
+                forms_1.FormsModule,
+                common_1.CommonModule
+            ],
+            exports: [
+                forms_1.FormsModule,
+                common_1.CommonModule,
+                star_component_1.StarComponent
+            ]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], SharedModule);
+    return SharedModule;
 }());
-exports.ProductDetailGuard = ProductDetailGuard;
-//# sourceMappingURL=product-guard.service.js.map
+exports.SharedModule = SharedModule;
+//# sourceMappingURL=shared.module.js.map

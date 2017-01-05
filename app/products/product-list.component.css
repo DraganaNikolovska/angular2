@@ -1,3 +1,6 @@
 thead {
     color: #337ab7;
 }
+td{
+    min-width: 150px;
+}
